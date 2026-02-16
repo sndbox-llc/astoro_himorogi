@@ -5,7 +5,7 @@ date: 2014-12-15T13:00:00
 images: ['p1.jpg']
 ---
 
-## 演奏会 in FKD（2014年12月）{#concert_fkd_201412}
+## 演奏会 in FKD（2014年12月） {#concert_fkd_201412}
 
 2014年12月にFKDインターパークで開催された演奏会の様子を、動画でご紹介します。  
 当日は本当に多くのお客様にご来場いただき、大変にぎやかな演奏会となりました。  
@@ -13,7 +13,7 @@ images: ['p1.jpg']
 
 ---
 
-### 🎥 演奏会動画{#concert_fkd_201412_video}
+### 🎥 演奏会動画 {#concert_fkd_201412_video}
 
 動画はこちらからもご覧いただけます：  
 📺 [https://youtu.be/zHLCgob9GMQ](https://youtu.be/zHLCgob9GMQ)
@@ -29,7 +29,7 @@ images: ['p1.jpg']
 
 ---
 
-### 📸 演奏会風景ギャラリー{#concert_fkd_201412_gallery}
+### 📸 演奏会風景ギャラリー {#concert_fkd_201412_gallery}
 
 {{< lightbox src="p1.jpg" alt="演奏会風景1" >}}  
 {{< lightbox src="p2.jpg" alt="演奏会風景2" >}}  

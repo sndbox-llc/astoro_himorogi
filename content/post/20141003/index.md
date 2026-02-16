@@ -4,7 +4,7 @@ description: 2013年12月14日にFKDインターパークにて行われた演�
 date: 2014-10-01T13:00:00
 ---
 
-## 演奏会 in FKD（インターパーク）{#concert_fkd_200312}
+## 演奏会 in FKD（インターパーク） {#concert_fkd_200312}
 
 <dl class="basic">
   <dt>イベント名</dt>
