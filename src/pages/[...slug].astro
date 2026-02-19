@@ -1,0 +1,89 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../components/Layout.astro";
+
+// 1. 全記事からURL（slug）のリストを作成
+export async function getStaticPaths() {
+  const docs = await getCollection("blog");
+  return docs.map((entry) => ({
+    params: { slug: entry.slug }, // Markdownのslug設定がここに自動適用されます
+    props: { entry },
+  }));
+}
+
+// 2. 該当する記事のデータを取得
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout frontmatter={entry.data}>
+  <article class="card shadow-sm border-0 mb-5">
+    <header class="card-body p-4 p-md-5 border-bottom bg-light rounded-top">
+      <div class="mb-3">
+        <span
+          class="badge bg-primary text-uppercase font-monospace"
+          style="letter-spacing: 1px;"
+        >
+          Blog Post
+        </span>
+      </div>
+
+      <h1 class="display-5 fw-bold text-dark mb-3">{entry.data.title}</h1>
+
+      <div class="d-flex align-items-center text-muted small">
+        <span class="me-3">
+          <i class="bi bi-calendar3 me-1"></i>
+          {
+            entry.data.date
+              ? entry.data.date.toLocaleDateString("ja-JP", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              : "日付なし"
+          }
+        </span>
+      </div>
+    </header>
+
+    <div class="card-body p-4 p-md-5 article-content">
+      <Content />
+    </div>
+
+    <footer class="card-footer bg-white p-4 border-0 text-center">
+      <hr class="mb-4" />
+      <a href="/blog" class="btn btn-outline-secondary px-4">
+        ← 記事一覧に戻る
+      </a>
+    </footer>
+  </article>
+</Layout>
+
+<style is:global>
+  /* 本文内のタイポグラフィを整える */
+  .article-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+  }
+
+  .article-content h2 {
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+  }
+
+  .article-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+  }
+</style>
