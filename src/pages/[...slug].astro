@@ -1,31 +1,26 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "../components/Layout.astro";
+import { getCollection } from 'astro:content'
+import Layout from '../components/Layout.astro'
 
 // 1. 全記事からURL（slug）のリストを作成
 export async function getStaticPaths() {
-  const docs = await getCollection("blog");
+  const docs = await getCollection('blog')
   return docs.map((entry) => ({
     params: { slug: entry.slug }, // Markdownのslug設定がここに自動適用されます
     props: { entry },
-  }));
+  }))
 }
 
 // 2. 該当する記事のデータを取得
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { entry } = Astro.props
+const { Content } = await entry.render()
 ---
 
 <Layout frontmatter={entry.data}>
   <article class="card shadow-sm border-0 mb-5">
     <header class="card-body p-4 p-md-5 border-bottom bg-light rounded-top">
       <div class="mb-3">
-        <span
-          class="badge bg-primary text-uppercase font-monospace"
-          style="letter-spacing: 1px;"
-        >
-          Blog Post
-        </span>
+        <span class="badge bg-primary text-uppercase font-monospace" style="letter-spacing: 1px;"> Blog Post </span>
       </div>
 
       <h1 class="display-5 fw-bold text-dark mb-3">{entry.data.title}</h1>
@@ -35,12 +30,12 @@ const { Content } = await entry.render();
           <i class="bi bi-calendar3 me-1"></i>
           {
             entry.data.date
-              ? entry.data.date.toLocaleDateString("ja-JP", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
+              ? entry.data.date.toLocaleDateString('ja-JP', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
                 })
-              : "日付なし"
+              : '日付なし'
           }
         </span>
       </div>
@@ -52,9 +47,7 @@ const { Content } = await entry.render();
 
     <footer class="card-footer bg-white p-4 border-0 text-center">
       <hr class="mb-4" />
-      <a href="/blog" class="btn btn-outline-secondary px-4">
-        ← 記事一覧に戻る
-      </a>
+      <a href="/blog" class="btn btn-outline-secondary px-4"> ← 記事一覧に戻る </a>
     </footer>
   </article>
 </Layout>

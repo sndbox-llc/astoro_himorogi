@@ -1,16 +1,16 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
-const allBlogPosts = await getCollection("blog");
+const allBlogPosts = await getCollection('blog')
 
 // 配列を一度コピーしてからソートする（これが重要！）
 const sortedPosts = [...allBlogPosts].sort((a, b) => {
-  const dateA = new Date(a.data.date).getTime();
-  const dateB = new Date(b.data.date).getTime();
+  const dateA = new Date(a.data.date).getTime()
+  const dateB = new Date(b.data.date).getTime()
 
   // 新しい順（降順）なら B - A
-  return dateB - dateA;
-});
+  return dateB - dateA
+})
 ---
 
 <h4 class="text-secondary text-center my-1">新着情報</h4>
@@ -19,7 +19,7 @@ const sortedPosts = [...allBlogPosts].sort((a, b) => {
   {
     sortedPosts.slice(0, 5).map((post) => (
       <a href={`/${post.slug}`} class="list-group-item list-group-item-action">
-        <small>{post.data.date.toLocaleDateString("ja-JP")}</small>
+        <small>{post.data.date.toLocaleDateString('ja-JP')}</small>
 
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{post.data.title.substr(0, 10)}</h5>
@@ -51,53 +51,26 @@ const sortedPosts = [...allBlogPosts].sort((a, b) => {
   </div>
 </div>
 
-<div
-  class="card border-0 mb-4 shadow-sm overflow-hidden"
-  style="border-radius: 20px;"
->
+<div class="card border-0 mb-4 shadow-sm overflow-hidden" style="border-radius: 20px;">
   <div class="p-4 text-white" style="background-color: #46331d;">
     <h4 class="fw-bold mb-1" style="font-family: serif;">若松原音楽教室</h4>
     <p class="mb-3 opacity-75">宇都宮市若松原3-17-13</p>
-    <a
-      href="tel:0286551979"
-      class="text-decoration-none text-white h3 fw-bold d-block mb-0"
-    >
-      TEL 028-655-1979
-    </a>
+    <a href="tel:0286551979" class="text-decoration-none text-white h3 fw-bold d-block mb-0"> TEL 028-655-1979 </a>
   </div>
 
   <div class="ratio ratio-16x9">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d25657.636781156292!2d139.864296!3d36.500923!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f5d2f901e8dd3%3A0xac193c9b4d996c3!2z5pel5pys44CB44CSMzIxLTAxMzkg5qCD5pyo55yM5a6H6YO95a6u5biC6Iul5p2-5Y6f77yT5LiB55uu77yR77yX4oiS77yR77yT!5e0!3m2!1sja!2sus!4v1745464082652!5m2!1sja!2sus"
-      width="600"
-      height="450"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d25657.636781156292!2d139.864296!3d36.500923!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f5d2f901e8dd3%3A0xac193c9b4d996c3!2z5pel5pys44CB44CSMzIxLTAxMzkg5qCD5pyo55yM5a6H6YO95a6u5biC6Iul5p2-5Y6f77yT5LiB55uu77yR77yX4oiS77yR77yT!5e0!3m2!1sja!2sus!4v1745464082652!5m2!1sja!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </div>
 
-<div
-  class="card border-0 mb-4 shadow-sm overflow-hidden"
-  style="border-radius: 20px;"
->
+<div class="card border-0 mb-4 shadow-sm overflow-hidden" style="border-radius: 20px;">
   <div class="p-4 text-white" style="background-color: #46331d;">
     <h4 class="fw-bold mb-1" style="font-family: serif;">駅前教室</h4>
     <p class="mb-3 opacity-75">宇都宮市雀の宮4-2-8</p>
-    <a
-      href="tel:0286541008"
-      class="text-decoration-none text-white h3 fw-bold d-block mb-0"
-    >
-      TEL 028-654-1008
-    </a>
+    <a href="tel:0286541008" class="text-decoration-none text-white h3 fw-bold d-block mb-0"> TEL 028-654-1008 </a>
   </div>
 
   <div class="ratio ratio-16x9">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d25659.624549006752!2d139.872534!3d36.494924!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1745448151703!5m2!1sja!2sjp"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d25659.624549006752!2d139.872534!3d36.494924!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1745448151703!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </div>
