@@ -1,16 +1,12 @@
 ---
-// src/pages/blog.astro
 import { getCollection } from 'astro:content'
 import Layout from '../components/Layout.astro'
 
 const allBlogPosts = await getCollection('blog')
 
-// 配列を一度コピーしてからソートする（これが重要！）
 const sortedPosts = [...allBlogPosts].sort((a, b) => {
   const dateA = new Date(a.data.date).getTime()
   const dateB = new Date(b.data.date).getTime()
-
-  // 新しい順（降順）なら B - A
   return dateB - dateA
 })
 ---
@@ -20,12 +16,13 @@ const sortedPosts = [...allBlogPosts].sort((a, b) => {
     {
       sortedPosts.map((post) => (
         <a href={`/${post.slug}`} class="list-group-item list-group-item-action">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{post.data.title}</h5>
-            <small>{post.data.date.toLocaleDateString('ja-JP')}</small>
+          <div class="d-flex justify-content-between">
+            <h5 class="mb-1 fw-bold">{post.data.title}</h5>
+            <p class="small text-muted mb-0">{post.data.date.toLocaleDateString('ja-JP')}</p>
           </div>
           <p class="mb-1 text-muted">{post.data.description || '記事の内容を読む...'}</p>
         </a>
+        <hr class="my-0" />
       ))
     }
   </div>
