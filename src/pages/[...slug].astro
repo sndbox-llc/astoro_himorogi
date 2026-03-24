@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import Layout from '../components/Layout.astro'
 
 export async function getStaticPaths() {
@@ -9,13 +9,14 @@ export async function getStaticPaths() {
 
   return allDocs.map((entry) => ({
     // entry.id から 'page/' などのディレクトリ名を削って slug を作成
-    params: { slug: entry.slug || entry.id.split('/').pop() },
+    params: { slug: entry.id || entry.id.split('/').pop() },
     props: { entry },
   }))
 }
 
 const { entry } = Astro.props
-const { Content } = await entry.render()
+
+const { Content } = await render(entry)
 
 // 現在のコレクションが 'blog' かどうかを判定
 const isBlog = entry.collection === 'blog'

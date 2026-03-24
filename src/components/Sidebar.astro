@@ -15,7 +15,7 @@ const sortedPosts = [...allBlogPosts].sort((a, b) => {
 <div class="list-group mb-4">
   {
     sortedPosts.slice(0, 5).map((post) => (
-      <a href={`/${post.slug}`} class="list-group-item list-group-item-action">
+      <a href={`/${post.id}`} class="list-group-item list-group-item-action">
         <p class="small text-muted mb-0">{post.data.date.toLocaleDateString('ja-JP')}</p>
         <h5 class="mb-1">{post.data.title.slice(0, 10)}</h5>
       </a>
