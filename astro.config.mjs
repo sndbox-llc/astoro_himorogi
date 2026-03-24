@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://hotaka-law.hotaka-g.jp/',
+  site: 'https://himorogi.hotaka-g.jp/',
   integrations: [sitemap()],
   // 💡 ViteのCSSプリプロセッサ設定を追加
   vite: {
