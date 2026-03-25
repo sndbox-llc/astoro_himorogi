@@ -2,11 +2,11 @@
 import { defineConfig } from 'astro/config'
 import sitemap from '@astrojs/sitemap'
 
-// https://astro.build/config
+const SITE_URL = 'https://himorogi.hotaka-g.jp/'
+
 export default defineConfig({
-  site: 'https://himorogi.hotaka-g.jp/',
+  site: SITE_URL,
   integrations: [sitemap()],
-  // 💡 ViteのCSSプリプロセッサ設定を追加
   vite: {
     css: {
       preprocessorOptions: {
