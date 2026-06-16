@@ -16,5 +16,10 @@
   },
   "devDependencies": {
     "sass": "^1.98.0"
-  }
+  },
+  "onlyBuiltDependencies": [
+    "esbuild",
+    "sharp",
+    "@parcel/watcher"
+  ]
 }
