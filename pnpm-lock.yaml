@@ -12,8 +12,8 @@ importers:
         specifier: 3.7.3
         version: 3.7.3
       astro:
-        specifier: 6.4.6
-        version: 6.4.6(@types/node@24.13.2)(rollup@4.62.0)(sass@1.101.0)
+        specifier: 6.4.7
+        version: 6.4.7(@types/node@24.13.2)(rollup@4.62.0)(sass@1.101.0)
       bootstrap:
         specifier: 5.3.8
         version: 5.3.8(@popperjs/core@2.11.8)
@@ -868,8 +868,8 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  astro@6.4.6:
-    resolution: {integrity: sha512-48OBTBKR9ctbf+DQxpOuxGl8ebfn59zTuNQMBzptmG/Mi/H8IdfMSbJgGuX1I/4U6g9yazG1p4BHlf4+2hWU4Q==}
+  astro@6.4.7:
+    resolution: {integrity: sha512-5vsXx0H52u23Jpshs9tM81D03Tb3Oh2Vt2Zo0bpqjXN+njkAWjFyGjTfmWJLAcrCQd9Q+iWB1eqfhR1sZJEaUA==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2337,7 +2337,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@6.4.6(@types/node@24.13.2)(rollup@4.62.0)(sass@1.101.0):
+  astro@6.4.7(@types/node@24.13.2)(rollup@4.62.0)(sass@1.101.0):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.10.0
